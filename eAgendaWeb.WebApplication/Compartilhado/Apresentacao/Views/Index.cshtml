@@ -1,0 +1,111 @@
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Página Inicial";
+}
+
+<div class="row align-items-center">
+    <div class="col-lg-7">
+        <h1 class="display-5 fw-bold mb-3">
+            <i class="bi bi-calendar-event me-2"></i>
+            e-Agenda
+        </h1>
+
+        <p class="lead text-secondary mb-4">
+            Organize seus compromissos, contatos, tarefas e despesas em um único lugar.
+            Tenha mais controle da sua rotina com praticidade, organização e produtividade.
+        </p>
+
+        <div class="d-flex gap-2 flex-wrap">
+            <a class="btn btn-outline-primary rounded-pill px-4" asp-controller="Contato" asp-action="Listar">
+                Contatos
+            </a>
+
+            <a class="btn btn-outline-primary rounded-pill px-4" asp-controller="Compromisso" asp-action="Listar">
+                Compromissos
+            </a>
+
+            <a class="btn btn-outline-primary rounded-pill px-4" asp-controller="Categoria" asp-action="Listar">
+                Categorias
+            </a>
+
+            <a class="btn btn-outline-primary rounded-pill px-4" asp-controller="Despesa" asp-action="Listar">
+                Despesas
+            </a>
+
+            <a class="btn btn-outline-primary rounded-pill px-4" asp-controller="Tarefa" asp-action="Listar">
+                Tarefas
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-5 mt-4 mt-lg-0">
+        <div class="card border-primary-subtle shadow-sm">
+            <div class="card-body p-4">
+
+                <h3 class="h5 text-primary mb-3">
+                    <i class="bi bi-grid me-2"></i>
+                    Módulos disponíveis
+                </h3>
+
+                <div class="list-group list-group-flush">
+
+                    <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center px-0"
+                       asp-controller="Contato" asp-action="Listar">
+                        <span>
+                            <i class="bi bi-person-lines-fill me-2"></i>
+                            Contatos
+                        </span>
+                        <span class="badge text-bg-primary rounded-pill">
+                            Abrir
+                        </span>
+                    </a>
+
+                    <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center px-0"
+                       asp-controller="Compromisso" asp-action="Listar">
+                        <span>
+                            <i class="bi bi-calendar-event me-2"></i>
+                            Compromissos
+                        </span>
+                        <span class="badge text-bg-primary rounded-pill">
+                            Abrir
+                        </span>
+                    </a>
+
+                    <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center px-0"
+                       asp-controller="Categoria" asp-action="Listar">
+                        <span>
+                            <i class="bi bi-tags me-2"></i>
+                            Categorias
+                        </span>
+                        <span class="badge text-bg-primary rounded-pill">
+                            Abrir
+                        </span>
+                    </a>
+
+                    <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center px-0"
+                       asp-controller="Despesa" asp-action="Listar">
+                        <span>
+                            <i class="bi bi-cash-coin me-2"></i>
+                            Despesas
+                        </span>
+                        <span class="badge text-bg-primary rounded-pill">
+                            Abrir
+                        </span>
+                    </a>
+
+                    <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center px-0"
+                       asp-controller="Tarefa" asp-action="Listar">
+                        <span>
+                            <i class="bi bi-check2-square me-2"></i>
+                            Tarefas
+                        </span>
+                        <span class="badge text-bg-primary rounded-pill">
+                            Abrir
+                        </span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
