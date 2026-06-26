@@ -1,12 +1,15 @@
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using eAgendaWeb.WebApplication.ModuloDeCategoria.Dominio;
 
 namespace eAgendaWeb.WebApplication.Compartilhado.Infra.Arquivo;
 
 public sealed class ContextoJson
 {
     private readonly string caminhoArquivo;
+
+    public List<Categoria> Categorias { get; set; } = new List<Categoria>();
 
     public ContextoJson()
     {
@@ -51,5 +54,6 @@ public sealed class ContextoJson
         if (contextoSalvo == null)
             return;
 
+        Categorias = contextoSalvo.Categorias;
     }
 }
