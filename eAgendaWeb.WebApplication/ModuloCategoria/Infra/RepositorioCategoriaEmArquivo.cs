@@ -12,6 +12,6 @@ public class RepositorioCategoriaEmArquivo : RepositorioBaseEmArquivo<Categoria>
 
     protected override List<Categoria> CarregarRegistros()
     {
-        return contexto.Categorias
+        return contexto.Categorias;
     }
 }

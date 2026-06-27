@@ -29,3 +29,23 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/igorm/OneDrive/Desktop/Academia Progamador/E-Agenda Web/eAgendaWeb.WebApplication/Compartilhado/Apresentacao/Views/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Q29tcGFydGlsaGFkb1xBcHJlc2VudGFjYW9cVmlld3NcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igorm/OneDrive/Desktop/Academia Progamador/E-Agenda Web/eAgendaWeb.WebApplication/ModuloCategoria/Apresentacao/Views/Cadastrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kdWxvQ2F0ZWdvcmlhXEFwcmVzZW50YWNhb1xWaWV3c1xDYWRhc3RyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igorm/OneDrive/Desktop/Academia Progamador/E-Agenda Web/eAgendaWeb.WebApplication/ModuloCategoria/Apresentacao/Views/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kdWxvQ2F0ZWdvcmlhXEFwcmVzZW50YWNhb1xWaWV3c1xFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igorm/OneDrive/Desktop/Academia Progamador/E-Agenda Web/eAgendaWeb.WebApplication/ModuloCategoria/Apresentacao/Views/Excluir.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kdWxvQ2F0ZWdvcmlhXEFwcmVzZW50YWNhb1xWaWV3c1xFeGNsdWlyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igorm/OneDrive/Desktop/Academia Progamador/E-Agenda Web/eAgendaWeb.WebApplication/ModuloCategoria/Apresentacao/Views/Listar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kdWxvQ2F0ZWdvcmlhXEFwcmVzZW50YWNhb1xWaWV3c1xMaXN0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igorm/OneDrive/Desktop/Academia Progamador/E-Agenda Web/eAgendaWeb.WebApplication/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = X1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 

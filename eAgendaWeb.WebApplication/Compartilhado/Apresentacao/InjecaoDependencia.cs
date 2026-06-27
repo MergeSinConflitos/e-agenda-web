@@ -12,8 +12,6 @@ public static class InjecaoDependencia
             options.ViewLocationFormats.Clear();
 
 
-
-
             // Localização das Views dos módulos: /ModuloCaixa/Apresentacao/Views/Listar.cshtml
             options.ViewLocationFormats.Add("/Modulo{1}/Apresentacao/Views/{0}.cshtml");
 
