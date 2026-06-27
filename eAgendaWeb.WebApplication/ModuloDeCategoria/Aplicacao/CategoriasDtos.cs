@@ -9,20 +9,15 @@ public record ListarCategoriasDto(
 );
 
 public record CadastrarCategoriaDto(
-    [Required(ErrorMessage ="O campo Titulo deve ser preenchido")]
-    [StringLength(100, MinimumLength =2,ErrorMessage ="O titulo deve ter entre 100 e 2 caracteres")]
     string Titulo
 );
 
 public record EditarCategoriaDto(
     Guid Id,
-
-    [Required(ErrorMessage ="O campo Titulo deve ser preenchido")]
-    [StringLength(100, MinimumLength =2,ErrorMessage ="O titulo deve ter entre 100 e 2 caracteres")]
     string Titulo
 );
 
-public record ExcluirCategoriaDto(
+public record DetalhesCategoriaDto(
     Guid Id,
     string Titulo
 );
