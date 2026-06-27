@@ -25,6 +25,7 @@
     <Folder Include="Compartilhado\Infra\SQL\" />
     <Folder Include="ModuloDeCategoria\" />
     <Folder Include="ModuloDeCategoria\Aplicacao\" />
+    <Folder Include="ModuloDeCategoria\Apresentacao\" />
     <Folder Include="ModuloDeCategoria\Dominio\" />
     <Folder Include="ModuloDeCategoria\Infra\" />
   </ItemGroup>
