@@ -24,6 +24,9 @@
     <Folder Include="Compartilhado\Infra\Arquivo\" />
     <Folder Include="Compartilhado\Infra\SQL\" />
     <Folder Include="ModuloCategoria\" />
+    <Folder Include="ModuloDispesa\" />
+    <Folder Include="ModuloDispesa\Dominio\" />
+    <Folder Include="ModuloDispesa\Infra\" />
   </ItemGroup>
 
 </Project>
