@@ -115,13 +115,14 @@ public class ServicoDispesa
             return Result.Fail("Despesa não encontrada.");
 
         return Result.Ok(new DetalhesDispesaDto(
-            dispesa.Id,
-            dispesa.Descricao,
-            dispesa.DataDeOcorrencia,
-            dispesa.Valor,
-            dispesa.FormaDePagamento,
-            dispesa.Categorias.Select(c => c.Titulo).ToList()
-        ));
+     dispesa.Id,
+     dispesa.Descricao,
+     dispesa.DataDeOcorrencia,
+     dispesa.Valor,
+     dispesa.FormaDePagamento,
+     dispesa.Categorias.Select(c => c.Id).ToList(),
+     dispesa.Categorias.Select(c => c.Titulo).ToList()
+ ));
     }
 
     public List<OpcaoCategoriaDto> SelecionarCategorias()

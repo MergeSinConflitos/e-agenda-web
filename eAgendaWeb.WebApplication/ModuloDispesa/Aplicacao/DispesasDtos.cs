@@ -40,5 +40,6 @@ public record DetalhesDispesaDto(
     DateTime? DataDeOcorrencia,
     decimal Valor,
     FormaDePagamento FormaDePagamento,
+    List<Guid> CategoriaIds,
     List<string> Categorias
 );
