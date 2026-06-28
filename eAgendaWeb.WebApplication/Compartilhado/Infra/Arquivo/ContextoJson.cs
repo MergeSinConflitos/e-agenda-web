@@ -11,7 +11,7 @@ public sealed class ContextoJson
     private readonly string caminhoArquivo;
 
     public List<Categoria> Categorias { get; set; } = new List<Categoria>();
-    public List<Dispesa> Dispesas { get; set; } = new List<Dispesa>();
+    public List<Despesa> Dispesas { get; set; } = new List<Despesa>();
 
     public ContextoJson()
     {

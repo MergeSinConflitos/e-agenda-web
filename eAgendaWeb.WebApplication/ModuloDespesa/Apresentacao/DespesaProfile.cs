@@ -10,15 +10,15 @@ public class DispesaProfile : Profile
     {
         CreateMap<OpcaoCategoriaDto, OpcaoCategoriaViewModel>();
 
-        CreateMap<ListarDispesaDto, ListarDispesaViewModel>();
+        CreateMap<ListarDespesaDto, ListarDespesaViewModel>();
 
-        CreateMap<CadastrarDispesaViewModel, CadastrarDispesaDto>();
+        CreateMap<CadastrarDespesaViewModel, CadastrarDespesaDto>();
 
-        CreateMap<EditarDispesaViewModel, EditarDispesaDto>();
+        CreateMap<EditarDespesaViewModel, EditarDespesaDto>();
 
-        CreateMap<DetalhesDispesaDto, EditarDispesaViewModel>()
+        CreateMap<DetalhesDespesaDto, EditarDespesaViewModel>()
             .ForCtorParam("Categorias", opt => opt.MapFrom(_ => new List<OpcaoCategoriaViewModel>()));
 
-        CreateMap<DetalhesDispesaDto, ExcluirDispesaViewModel>();
+        CreateMap<DetalhesDespesaDto, ExcluirDespesaViewModel>();
     }
 }

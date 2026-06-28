@@ -24,7 +24,7 @@ public static class InjecaoDependencia
         services.AddScoped<ISqlConnectionFactory, SqlConnectionFactory>();
 
         services.AddScoped<IRepositorioCategoria, RepositorioCategoriaEmArquivo>();
-        services.AddScoped<IRepositorioDispesa, RepositorioDispesaEmArquivo>();
+        services.AddScoped<IRepositorioDespesa, RepositorioDespesaEmArquivo>();
 
 
     }

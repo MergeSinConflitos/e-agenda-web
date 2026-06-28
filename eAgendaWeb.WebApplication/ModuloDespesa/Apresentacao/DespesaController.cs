@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eAgendaWeb.WebApplication.ModuloDispesa.Apresentacao;
 
-public class DispesaController : Controller
+public class DespesaController : Controller
 {
     private readonly ServicoDispesa servicoDispesa;
     private readonly IMapper mapeador;
 
-    public DispesaController(ServicoDispesa servicoDispesa, IMapper mapeador)
+    public DespesaController(ServicoDispesa servicoDispesa, IMapper mapeador)
     {
         this.servicoDispesa = servicoDispesa;
         this.mapeador = mapeador;
@@ -22,8 +22,8 @@ public class DispesaController : Controller
     [HttpGet]
     public ActionResult Listar()
     {
-        List<ListarDispesaDto> dtos = servicoDispesa.SelecionarTodos();
-        List<ListarDispesaViewModel> listarVms = mapeador.Map<List<ListarDispesaViewModel>>(dtos);
+        List<ListarDespesaDto> dtos = servicoDispesa.SelecionarTodos();
+        List<ListarDespesaViewModel> listarVms = mapeador.Map<List<ListarDespesaViewModel>>(dtos);
 
         return View(listarVms);
     }
@@ -31,7 +31,7 @@ public class DispesaController : Controller
     [HttpGet]
     public ActionResult Cadastrar()
     {
-        CadastrarDispesaViewModel cadastrarVm = new(
+        CadastrarDespesaViewModel cadastrarVm = new(
             string.Empty,
             DateTime.Now,
             0,
@@ -44,12 +44,12 @@ public class DispesaController : Controller
     }
 
     [HttpPost]
-    public ActionResult Cadastrar(CadastrarDispesaViewModel cadastrarVm)
+    public ActionResult Cadastrar(CadastrarDespesaViewModel cadastrarVm)
     {
         if (!ModelState.IsValid)
             return View(cadastrarVm with { Categorias = SelecionarCategorias() });
 
-        CadastrarDispesaDto dto = mapeador.Map<CadastrarDispesaDto>(cadastrarVm);
+        CadastrarDespesaDto dto = mapeador.Map<CadastrarDespesaDto>(cadastrarVm);
 
         Result resultado = servicoDispesa.Cadastrar(dto);
 
@@ -68,7 +68,7 @@ public class DispesaController : Controller
     [HttpGet]
     public ActionResult Editar(Guid id)
     {
-        Result<DetalhesDispesaDto> resultado = servicoDispesa.SelecionarPorId(id);
+        Result<DetalhesDespesaDto> resultado = servicoDispesa.SelecionarPorId(id);
 
         if (resultado.IsFailed)
         {
@@ -77,8 +77,8 @@ public class DispesaController : Controller
             return RedirectToAction(nameof(Listar));
         }
 
-        EditarDispesaViewModel editarVm =
-            mapeador.Map<EditarDispesaViewModel>(resultado.Value)
+        EditarDespesaViewModel editarVm =
+            mapeador.Map<EditarDespesaViewModel>(resultado.Value)
             with
             {
                 Categorias = SelecionarCategorias()
@@ -88,12 +88,12 @@ public class DispesaController : Controller
     }
 
     [HttpPost]
-    public ActionResult Editar(EditarDispesaViewModel editarVm)
+    public ActionResult Editar(EditarDespesaViewModel editarVm)
     {
         if (!ModelState.IsValid)
             return View(editarVm with { Categorias = SelecionarCategorias() });
 
-        EditarDispesaDto dto = mapeador.Map<EditarDispesaDto>(editarVm);
+        EditarDespesaDto dto = mapeador.Map<EditarDespesaDto>(editarVm);
 
         Result resultado = servicoDispesa.Editar(dto);
 
@@ -112,7 +112,7 @@ public class DispesaController : Controller
     [HttpGet]
     public ActionResult Excluir(Guid id)
     {
-        Result<DetalhesDispesaDto> resultado = servicoDispesa.SelecionarPorId(id);
+        Result<DetalhesDespesaDto> resultado = servicoDispesa.SelecionarPorId(id);
 
         if (resultado.IsFailed)
         {
@@ -121,14 +121,14 @@ public class DispesaController : Controller
             return RedirectToAction(nameof(Listar));
         }
 
-        ExcluirDispesaViewModel excluirVm =
-            mapeador.Map<ExcluirDispesaViewModel>(resultado.Value);
+        ExcluirDespesaViewModel excluirVm =
+            mapeador.Map<ExcluirDespesaViewModel>(resultado.Value);
 
         return View(excluirVm);
     }
 
     [HttpPost]
-    public ActionResult Excluir(ExcluirDispesaViewModel excluirVm)
+    public ActionResult Excluir(ExcluirDespesaViewModel excluirVm)
     {
         Result resultado = servicoDispesa.Excluir(excluirVm.Id);
 

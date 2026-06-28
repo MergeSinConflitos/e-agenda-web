@@ -10,14 +10,14 @@ public enum FormaDePagamento
     Credito,
     Debito
 }
-public class Dispesa : EntidadeBase<Dispesa>
+public class Despesa : EntidadeBase<Despesa>
 {
     public string Descricao { get; set; }
     public DateTime? DataDeOcorrencia { get; set; } = DateTime.Now;
     public decimal Valor { get; set; }
     public FormaDePagamento FormaDePagamento { get; set; }
     public List<Categoria> Categorias { get; set; }
-    public Dispesa(string descricao, DateTime? dataDeOcorrencia, decimal valor, FormaDePagamento formaDePagamento, List<Categoria> categorias)
+    public Despesa(string descricao, DateTime? dataDeOcorrencia, decimal valor, FormaDePagamento formaDePagamento, List<Categoria> categorias)
     {
         Descricao = descricao;
         DataDeOcorrencia = dataDeOcorrencia;
@@ -26,14 +26,14 @@ public class Dispesa : EntidadeBase<Dispesa>
         Categorias = categorias;
     }
 
-    public Dispesa()
+    public Despesa()
     {
 
     }
 
-    public override void Atualizar(Dispesa entidadeAtualizada)
+    public override void Atualizar(Despesa entidadeAtualizada)
     {
-        Dispesa dispesaAtualizada = (Dispesa)entidadeAtualizada;
+        Despesa dispesaAtualizada = (Despesa)entidadeAtualizada;
 
         Descricao = dispesaAtualizada.Descricao;
         DataDeOcorrencia = dispesaAtualizada.DataDeOcorrencia;

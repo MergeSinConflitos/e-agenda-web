@@ -10,7 +10,7 @@ public record OpcaoCategoriaViewModel(
     string Titulo
 );
 
-public record ListarDispesaViewModel(
+public record ListarDespesaViewModel(
     Guid Id,
     string Descricao,
     DateTime? DataDeOcorrencia,
@@ -19,7 +19,7 @@ public record ListarDispesaViewModel(
     List<string> Categorias
 );
 
-public record CadastrarDispesaViewModel(
+public record CadastrarDespesaViewModel(
 
     [Required(ErrorMessage = "O campo \"Descrição\" deve ser preenchido")]
     [StringLength(100, MinimumLength = 2, ErrorMessage = "A descrição deve ter entre 2 e 100 caracteres")]
@@ -41,7 +41,7 @@ public record CadastrarDispesaViewModel(
     List<OpcaoCategoriaViewModel> Categorias
 );
 
-public record EditarDispesaViewModel(
+public record EditarDespesaViewModel(
     Guid Id,
 
     [Required(ErrorMessage = "O campo \"Descrição\" deve ser preenchido")]
@@ -64,7 +64,7 @@ public record EditarDispesaViewModel(
     List<OpcaoCategoriaViewModel> Categorias
 );
 
-public record ExcluirDispesaViewModel(
+public record ExcluirDespesaViewModel(
     Guid Id,
     string Descricao,
     DateTime? DataDeOcorrencia,

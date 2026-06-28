@@ -8,7 +8,7 @@ public record OpcaoCategoriaDto(
     string Titulo
 );
 
-public record ListarDispesaDto(
+public record ListarDespesaDto(
     Guid Id,
     string Descricao,
     DateTime? DataDeOcorrencia,
@@ -17,7 +17,7 @@ public record ListarDispesaDto(
     List<string> Categorias
 );
 
-public record CadastrarDispesaDto(
+public record CadastrarDespesaDto(
     string Descricao,
     DateTime? DataDeOcorrencia,
     decimal Valor,
@@ -25,7 +25,7 @@ public record CadastrarDispesaDto(
     List<Guid> CategoriaIds
 );
 
-public record EditarDispesaDto(
+public record EditarDespesaDto(
     Guid Id,
     string Descricao,
     DateTime? DataDeOcorrencia,
@@ -34,7 +34,7 @@ public record EditarDispesaDto(
     List<Guid> CategoriaIds
 );
 
-public record DetalhesDispesaDto(
+public record DetalhesDespesaDto(
     Guid Id,
     string Descricao,
     DateTime? DataDeOcorrencia,
