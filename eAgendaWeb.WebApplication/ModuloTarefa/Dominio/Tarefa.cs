@@ -20,14 +20,13 @@ public class Tarefa : EntidadeBase<Tarefa>
     public DateTime DataDeConclusao { get; set; }
     public StatusDeConclusao StatusDeConclusao { get; set; }
     public double PercentualConcluido { get; set; } = 0;
-    public Tarefa(string titulo, Prioridade prioridade, DateTime dataDeCriacao, DateTime dataDeConclusao, StatusDeConclusao statusDeConclusao, double percentualConcluido)
+    public Tarefa(string titulo, Prioridade prioridade, DateTime dataDeCriacao, DateTime dataDeConclusao, StatusDeConclusao statusDeConclusao)
     {
         Titulo = titulo;
         Prioridade = prioridade;
         DataDeCriacao = dataDeCriacao;
         DataDeConclusao = dataDeConclusao;
         StatusDeConclusao = statusDeConclusao;
-        PercentualConcluido = percentualConcluido;
     }
 
     public Tarefa()
