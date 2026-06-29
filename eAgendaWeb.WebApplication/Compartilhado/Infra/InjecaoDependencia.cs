@@ -5,6 +5,8 @@ using eAgendaWeb.WebApplication.ModuloDeCategoria.Dominio;
 using eAgendaWeb.WebApplication.ModuloDeCategoria.Infra;
 using eAgendaWeb.WebApplication.ModuloDispesa.Dominio;
 using eAgendaWeb.WebApplication.ModuloDispesa.Infra;
+using eAgendaWeb.WebApplication.ModuloTarefa.Dominio;
+using eAgendaWeb.WebApplication.ModuloTarefa.Infra;
 
 namespace eAgendaWeb.WebApplication.Compartilhado.Infra;
 
@@ -25,6 +27,7 @@ public static class InjecaoDependencia
 
         services.AddScoped<IRepositorioCategoria, RepositorioCategoriaEmArquivo>();
         services.AddScoped<IRepositorioDespesa, RepositorioDespesaEmArquivo>();
+        services.AddScoped<IRepositorioTarefa, RepositorioTarefaEmArquivo>();
 
 
     }

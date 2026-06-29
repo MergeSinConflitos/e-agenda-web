@@ -13,18 +13,14 @@ public record ListarTarefaDto(
 public record CadastrarTarefaDto(
     string Titulo,
     Prioridade Prioridade,
-    DateTime DataDeCriacao,
-    DateTime DataDeConclusao,
-    StatusDeConclusao StatusDeConclusao
+    DateTime DataDeCriacao
 );
 
 public record EditarTarefaDto(
     Guid Id,
     string Titulo,
     Prioridade Prioridade,
-    DateTime DataDeCriacao,
-    DateTime DataDeConclusao,
-    StatusDeConclusao StatusDeConclusao
+    DateTime DataDeCriacao
 );
 
 public record DetalhesTarefaDto(

@@ -1,6 +1,7 @@
 using System;
 using eAgendaWeb.WebApplication.ModuloDeCategoria.Aplicacao;
 using eAgendaWeb.WebApplication.ModuloDispesa.Aplicacao;
+using eAgendaWeb.WebApplication.ModuloTarefa.Aplicacao;
 
 namespace eAgendaWeb.WebApplication.Compartilhado.Aplicacao;
 
@@ -10,5 +11,6 @@ public static class InjecaoDependencia
     {
         services.AddScoped<ServicoCategoria>();
         services.AddScoped<ServicoDispesa>();
+        services.AddScoped<ServicoTarefa>();
     }
 }

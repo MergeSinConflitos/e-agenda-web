@@ -19,13 +19,12 @@ public class ServicoTarefa
         {
             return Falha("Titulo", "Já existe uma tarefa com esse Titulo");
         }
-
         Tarefa novaTarefa = new Tarefa(
             dto.Titulo,
             dto.Prioridade,
             dto.DataDeCriacao,
-            dto.DataDeConclusao,
-            dto.StatusDeConclusao
+            DateTime.MinValue,
+            StatusDeConclusao.Aberto
         );
 
         Result resultadoValidacao = ValidarEntidade(novaTarefa);
@@ -49,12 +48,12 @@ public class ServicoTarefa
         }
 
         Tarefa tarefaAtualizada = new Tarefa(
-            dto.Titulo,
-            dto.Prioridade,
-            dto.DataDeCriacao,
-            dto.DataDeConclusao,
-            dto.StatusDeConclusao
-        );
+     dto.Titulo,
+     dto.Prioridade,
+     dto.DataDeCriacao,
+     DateTime.MinValue,
+     StatusDeConclusao.Aberto
+ );
 
         Result resultadoValidacao = ValidarEntidade(tarefaAtualizada);
 
