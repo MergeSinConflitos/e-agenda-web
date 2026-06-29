@@ -42,6 +42,11 @@ public record EditarTarefaViewModel(
 );
 
 public record ExcluirTarefaViewModel(
-    Guid Id,
-    string Titulo
+     Guid Id,
+    string Titulo,
+    Prioridade Prioridade,
+    DateTime DataDeCriacao,
+    DateTime DataDeConclusao,
+    StatusDeConclusao StatusDeConclusao,
+    double PercentualConcluido
 );
