@@ -87,6 +87,16 @@ else
                     </div>
 
                     <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                        <div class="d-flex gap-2">
+
+                            <a class="btn btn-success btn-sm flex-fill" asp-controller="Item" asp-action="Listar"
+                               asp-route-tarefaId="@tarefa.Id">
+
+                                Itens
+
+                            </a>
+
+                        </div>
                         <div class="d-grid gap-2 d-md-flex">
 
                             <a class="btn btn-primary btn-sm flex-fill" asp-action="Editar" asp-route-id="@tarefa.Id">

@@ -31,10 +31,12 @@ public class ServicoItem
 
 
         Item novoItem = new Item(
-            dto.Titulo,
-            dto.StatusDeConclusao,
-            resultadoTarefa.Value
-        );
+     dto.Titulo,
+     dto.StatusDeConclusao,
+     resultadoTarefa.Value
+ );
+
+        novoItem.TarefaId = resultadoTarefa.Value.Id;
 
 
         Result resultadoValidacao = ValidarEntidade(novoItem);
@@ -53,7 +55,7 @@ public class ServicoItem
     public List<ListarItemDto> SelecionarTodosPorTarefa(Guid tarefaId)
     {
         return repositorioItem
-            .Filtrar(i => i.Tarefa.Id == tarefaId)
+           .Filtrar(i => i.TarefaId == tarefaId)
             .Select(MapearParaListarDto)
             .ToList();
     }
@@ -82,42 +84,24 @@ public class ServicoItem
             .ToList();
     }
 
-
-    public Result Editar(Guid id, CadastrarItemDto dto)
+    public Result Concluir(Guid id)
     {
         Item? item = repositorioItem.SelecionarPorId(id);
 
         if (item == null)
             return Result.Fail("Item não encontrado.");
 
-
-        Result<Tarefa> resultadoTarefa = SelecionarTarefa(dto.TarefaId);
-
-        if (resultadoTarefa.IsFailed)
-            return Result.Fail(resultadoTarefa.Errors);
-
-
-        Item itemAtualizado = new Item(
-            dto.Titulo,
-            dto.StatusDeConclusao,
-            resultadoTarefa.Value
-        );
-
-
-        Result validacao = ValidarEntidade(itemAtualizado);
-
-        if (validacao.IsFailed)
-            return validacao;
-
-
-        item.Atualizar(itemAtualizado);
+        item.StatusDeConclusao = StatusDeConclusao.Concluido;
 
         repositorioItem.Editar(id, item);
 
-        return Result.Ok()
-            .WithSuccess("Item atualizado com sucesso");
-    }
 
+        AtualizarPercentualDaTarefa(item.TarefaId);
+
+
+        return Result.Ok()
+            .WithSuccess("Item concluído com sucesso.");
+    }
 
     public Result Excluir(Guid id)
     {
@@ -126,12 +110,19 @@ public class ServicoItem
         if (item == null)
             return Result.Fail("Item não encontrado.");
 
+
+        Guid tarefaId = item.TarefaId;
+
+
         repositorioItem.Excluir(id);
 
-        return Result.Ok()
-            .WithSuccess("Item excluído com sucesso");
-    }
 
+        AtualizarPercentualDaTarefa(tarefaId);
+
+
+        return Result.Ok()
+            .WithSuccess("Item excluído com sucesso.");
+    }
 
 
     private Result<Tarefa> SelecionarTarefa(Guid tarefaId)
@@ -172,8 +163,8 @@ public class ServicoItem
             item.Id,
             item.Titulo,
             item.StatusDeConclusao,
-            item.Tarefa.Id,
-            item.Tarefa.Titulo
+            item.TarefaId,
+            item.Tarefa?.Titulo ?? string.Empty
         );
     }
 
@@ -184,8 +175,52 @@ public class ServicoItem
             item.Id,
             item.Titulo,
             item.StatusDeConclusao,
-            item.Tarefa.Id,
-            item.Tarefa.Titulo
+            item.TarefaId,
+            item.Tarefa?.Titulo ?? string.Empty
         );
+    }
+    private void AtualizarPercentualDaTarefa(Guid tarefaId)
+    {
+        Tarefa? tarefa = repositorioTarefa.SelecionarPorId(tarefaId);
+
+        if (tarefa == null)
+            return;
+
+
+        List<Item> itens = repositorioItem
+            .Filtrar(i => i.TarefaId == tarefaId)
+            .ToList();
+
+
+        if (!itens.Any())
+        {
+            tarefa.PercentualConcluido = 0;
+            tarefa.StatusDeConclusao = StatusDeConclusao.Aberto;
+            tarefa.DataDeConclusao = DateTime.MinValue;
+        }
+        else
+        {
+            int concluidos = itens.Count(i =>
+                i.StatusDeConclusao == StatusDeConclusao.Concluido);
+
+
+            tarefa.PercentualConcluido =
+                (concluidos * 100) / itens.Count;
+
+
+            if (concluidos == itens.Count)
+            {
+                tarefa.StatusDeConclusao = StatusDeConclusao.Concluido;
+                tarefa.DataDeConclusao = DateTime.Now;
+            }
+            else
+            {
+                tarefa.StatusDeConclusao = StatusDeConclusao.Aberto;
+                tarefa.DataDeConclusao = DateTime.MinValue;
+            }
+        }
+
+
+        repositorioTarefa.Editar(tarefaId, tarefa);
     }
 }
