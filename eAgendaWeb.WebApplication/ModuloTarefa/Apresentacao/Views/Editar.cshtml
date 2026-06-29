@@ -1,0 +1,70 @@
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Edição de Tarefa";
+}
+
+@model EditarTarefaViewModel
+
+<div class="container py-3">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+
+            <form class="card border-0 shadow-sm" asp-action="Editar" method="post" asp-route-id=@Model.Id>
+
+                <div class="card-body p-4">
+
+                    <h4 class="text-primary mb-4">
+                        Editar Tarefa
+                    </h4>
+
+                    <div class="mb-3">
+                        <label asp-for="Titulo" class="form-label fw-semibold text-primary text-uppercase small">
+                            Título
+                        </label>
+
+                        <input asp-for="Titulo" class="form-control" placeholder="Digite o título da tarefa" />
+
+                        <span asp-validation-for="Titulo" class="text-danger small fw-semibold"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Prioridade" class="form-label fw-semibold text-primary text-uppercase small">
+                            Prioridade
+                        </label>
+
+                        <select asp-for="Prioridade" asp-items="Html.GetEnumSelectList<Prioridade>()"
+                                class="form-select">
+                        </select>
+
+                        <span asp-validation-for="Prioridade" class="text-danger small fw-semibold"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="DataDeCriacao" class="form-label fw-semibold text-primary text-uppercase small">
+                            Data de Criação
+                        </label>
+
+                        <input asp-for="DataDeCriacao" type="date" class="form-control" />
+
+                        <span asp-validation-for="DataDeCriacao" class="text-danger small fw-semibold"></span>
+                    </div>
+
+                    <div class="d-flex flex-column flex-sm-row justify-content-end gap-2 mt-4">
+
+                        <a asp-action="Listar" class="btn btn-outline-primary rounded-pill px-4 order-2 order-sm-1">
+                            Voltar
+                        </a>
+
+                        <button type="submit" class="btn btn-success rounded-pill px-4 order-1 order-sm-2">
+                            Confirmar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Excluir Item";
+}
+
+@model ExcluirItemViewModel
+
+
+<div class="card border-danger-subtle shadow-sm mx-auto p-4" style="max-width: 520px;">
+
+
+    <h4 class="text-danger mb-4">
+        Excluir Item
+    </h4>
+
+
+    <div class="alert alert-warning border-start border-warning border-4 rounded-3">
+
+        Tem certeza que deseja excluir este item?
+
+    </div>
+
+
+
+    <div class="mb-3">
+
+        <strong>Título:</strong>
+
+        <p class="text-muted mb-0">
+            @Model.Titulo
+        </p>
+
+    </div>
+
+
+
+    <div class="mb-3">
+
+        <strong>Status:</strong>
+
+        <p class="text-muted mb-0">
+            @Model.StatusDeConclusao
+        </p>
+
+    </div>
+
+
+
+    <div class="d-flex justify-content-end gap-2 mt-4">
+
+
+        <a class="btn btn-outline-primary rounded-pill px-4" asp-action="Listar" asp-route-tarefaId="@Model.TarefaId">
+
+            Voltar
+
+        </a>
+
+
+
+        <form asp-action="Excluir" method="post">
+
+
+            <input type="hidden" asp-for="Id" />
+
+
+            <button class="btn btn-danger rounded-pill px-4">
+
+                Excluir
+
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>

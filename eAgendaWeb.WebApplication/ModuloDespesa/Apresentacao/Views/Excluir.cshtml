@@ -1,0 +1,93 @@
+﻿@using eAgendaWeb.WebApplication.ModuloDispesa.Dominio
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Exclusão de Despesa";
+}
+
+@model ExcluirDespesaViewModel
+
+<form class="card border-primary-subtle shadow-sm mx-auto p-4" style="max-width: 620px;" asp-action="Excluir"
+      asp-route-id="@Model.Id" method="post">
+
+    <h4 class="text-primary mb-4">Excluir Despesa</h4>
+
+
+    <div class="mb-3">
+        <label asp-for="Descricao" class="form-label fw-semibold text-primary text-uppercase small">
+            Descrição
+        </label>
+
+        <input asp-for="Descricao" type="text" class="form-control" disabled>
+
+        <span asp-validation-for="Descricao" class="text-danger small fw-semibold">
+        </span>
+    </div>
+
+
+    <div class="mb-3">
+        <label asp-for="DataDeOcorrencia" class="form-label fw-semibold text-primary text-uppercase small">
+            Data de Ocorrência
+        </label>
+
+        <input asp-for="DataDeOcorrencia" type="date" class="form-control" disabled>
+
+        <span asp-validation-for="DataDeOcorrencia" class="text-danger small fw-semibold">
+        </span>
+    </div>
+
+
+    <div class="mb-3">
+        <label asp-for="Valor" class="form-label fw-semibold text-primary text-uppercase small">
+            Valor
+        </label>
+
+        <input asp-for="Valor" type="number" step="0.01" class="form-control" disabled>
+
+        <span asp-validation-for="Valor" class="text-danger small fw-semibold">
+        </span>
+    </div>
+
+
+    <div class="mb-3">
+        <label asp-for="FormaDePagamento" class="form-label fw-semibold text-primary text-uppercase small">
+            Forma de Pagamento
+        </label>
+
+        <select asp-for="FormaDePagamento" class="form-select" disabled>
+            <option value="">Selecione uma forma de pagamento</option>
+
+            @foreach (FormaDePagamento forma in Enum.GetValues<FormaDePagamento>())
+            {
+                <option value="@forma">@forma</option>
+            }
+
+        </select>
+
+        <span asp-validation-for="FormaDePagamento" class="text-danger small fw-semibold">
+        </span>
+    </div>
+
+
+    <div class="d-flex flex-wrap gap-2">
+        @foreach (string categoria in Model.Categorias)
+        {
+            <span class="badge rounded-pill bg-secondary">
+                @categoria
+            </span>
+        }
+    </div>
+
+
+    <div class="d-flex justify-content-end gap-2 mt-4">
+
+        <a class="btn btn-outline-primary rounded-pill px-4" asp-action="Listar">
+            Voltar
+        </a>
+
+        <button class="btn btn-success rounded-pill px-4" type="submit">
+            Confirmar
+        </button>
+
+    </div>
+
+</form>
