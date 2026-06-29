@@ -1,11 +1,13 @@
 using System;
 using eAgendaWeb.WebApplication.Compartilhado.Dominio;
+using eAgendaWeb.WebApplication.ModuloDispesa.Dominio;
 
 namespace eAgendaWeb.WebApplication.ModuloDeCategoria.Dominio;
 
 public class Categoria : EntidadeBase<Categoria>
 {
     public string Titulo { get; set; }
+    public Despesa Despesa { get; set; }
 
     public Categoria(string titulo)
     {

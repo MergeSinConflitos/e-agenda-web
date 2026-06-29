@@ -1,5 +1,6 @@
 using System;
 using eAgendaWeb.WebApplication.ModuloDeCategoria.Dominio;
+using eAgendaWeb.WebApplication.ModuloDispesa.Dominio;
 using FluentResults;
 
 namespace eAgendaWeb.WebApplication.ModuloDeCategoria.Aplicacao;
@@ -7,10 +8,12 @@ namespace eAgendaWeb.WebApplication.ModuloDeCategoria.Aplicacao;
 public class ServicoCategoria
 {
     private readonly IRepositorioCategoria repositorioCategoria;
+    private readonly IRepositorioDespesa repositorioDespesa;
 
-    public ServicoCategoria(IRepositorioCategoria repositorioCategoria)
+    public ServicoCategoria(IRepositorioCategoria repositorioCategoria, IRepositorioDespesa repositorioDespesa)
     {
         this.repositorioCategoria = repositorioCategoria;
+        this.repositorioDespesa = repositorioDespesa;
     }
 
     public Result Cadastrar(CadastrarCategoriaDto dto)
@@ -71,6 +74,11 @@ public class ServicoCategoria
             return Result.Fail("Categoria não encontrada");
         }
 
+        if (ExisteDespesaNaCategoria(Id))
+        {
+            return Result.Fail("Essa categoria não pode ser excluida pois possui despesas vinculadas a ela");
+        }
+
         repositorioCategoria.Excluir(Id);
 
         return Result.Ok().WithSuccess("Categoria excluida com sucesso");
@@ -119,6 +127,12 @@ public class ServicoCategoria
         IError erro = new Error(mensagem).WithMetadata("Campo", campo);
 
         return Result.Fail(erro);
+    }
+    private bool ExisteDespesaNaCategoria(Guid categoriaId)
+    {
+        return repositorioDespesa
+            .SelecionarTodos()
+            .Any(d => d.Categorias.Any(c => c.Id == categoriaId));
     }
 }
 
