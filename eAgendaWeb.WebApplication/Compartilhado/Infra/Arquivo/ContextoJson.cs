@@ -3,6 +3,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using eAgendaWeb.WebApplication.ModuloDeCategoria.Dominio;
 using eAgendaWeb.WebApplication.ModuloDispesa.Dominio;
+using eAgendaWeb.WebApplication.ModuloTarefa.Dominio;
 
 namespace eAgendaWeb.WebApplication.Compartilhado.Infra.Arquivo;
 
@@ -12,6 +13,7 @@ public sealed class ContextoJson
 
     public List<Categoria> Categorias { get; set; } = new List<Categoria>();
     public List<Despesa> Dispesas { get; set; } = new List<Despesa>();
+    public List<Tarefa> Tarefas { get; set; } = new List<Tarefa>();
 
     public ContextoJson()
     {
@@ -58,5 +60,6 @@ public sealed class ContextoJson
 
         Categorias = contextoSalvo.Categorias;
         Dispesas = contextoSalvo.Dispesas;
+        Tarefas = contextoSalvo.Tarefas;
     }
 }
