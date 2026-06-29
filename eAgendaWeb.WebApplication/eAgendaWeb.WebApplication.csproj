@@ -24,6 +24,9 @@
     <Folder Include="Compartilhado\Infra\Arquivo\" />
     <Folder Include="Compartilhado\Infra\SQL\" />
     <Folder Include="ModuloCategoria\" />
+    <Folder Include="ModuloItem\" />
+    <Folder Include="ModuloItem\Dominio\" />
+    <Folder Include="ModuloItem\Infra\" />
     <Folder Include="ModuloTarefa\" />
     <Folder Include="ModuloTarefa\Aplicacao\" />
     <Folder Include="ModuloTarefa\Apresentacao\" />
