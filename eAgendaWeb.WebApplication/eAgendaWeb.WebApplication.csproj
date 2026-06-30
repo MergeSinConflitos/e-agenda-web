@@ -30,6 +30,7 @@
     <Folder Include="Compartilhado\Infra\SQL\" />
     <Folder Include="ModuloCategoria\" />
     <Folder Include="ModuloCategoria\Infra\SQL\" />
+    <Folder Include="ModuloDespesa\Infra\SQL\" />
     <Folder Include="ModuloItem\" />
     <Folder Include="ModuloItem\Aplicacao\" />
     <Folder Include="ModuloItem\Apresentacao\" />
