@@ -23,6 +23,11 @@
     <Folder Include="Compartilhado\Infra\" />
     <Folder Include="Compartilhado\Infra\Arquivo\" />
     <Folder Include="Compartilhado\Infra\SQL\" />
+    <Folder Include="ModuloContatos\" />
+    <Folder Include="ModuloContatos\Aplicacao\" />
+    <Folder Include="ModuloContatos\Apresentacao\" />
+    <Folder Include="ModuloContatos\Dominio\" />
+    <Folder Include="ModuloContatos\Infra\" />
   </ItemGroup>
 
 </Project>
