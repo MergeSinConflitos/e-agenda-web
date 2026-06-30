@@ -17,7 +17,7 @@ public class ServicoContato
         this.repositorioCompromisso = repositorioCompromisso;
     }
 
-     public Result Cadastrar(CadastrarContatoDto dto)
+    public Result Cadastrar(CadastrarContatoDto dto)
     {
         Result resultadoDuplicado = ValidarDuplicado(dto.Email, dto.Telefone);
 
@@ -34,6 +34,92 @@ public class ServicoContato
         repositorioContato.Cadastrar(novoContato);
 
         return Result.Ok().WithSuccess("Contato cadastrado com sucesso!");
+    }
+
+    public Result Editar(EditarContatoDto dto)
+    {
+        Result resultadoDuplicado = ValidarDuplicado(dto.Email, dto.Telefone, dto.Id);
+
+        if (resultadoDuplicado.IsFailed)
+            return resultadoDuplicado;
+
+        Contato contatoAtualizado = new Contato(dto.Nome, dto.Email, dto.Telefone, dto.Cargo, dto.Empresa);
+
+        Result resultadoValidacao = ValidarEntidade(contatoAtualizado);
+
+        if (resultadoValidacao.IsFailed)
+            return resultadoValidacao;
+
+        bool conseguiuEditar = repositorioContato.Editar(dto.Id, contatoAtualizado);
+
+        if (!conseguiuEditar)
+            return Result.Fail("Contato não encontrado.");
+
+        return Result.Ok().WithSuccess("Contato editado com sucesso!");
+    }
+
+    public Result Excluir(Guid id)
+    {
+        Contato? contato = repositorioContato.SelecionarPorId(id);
+
+        if (contato == null)
+            return Result.Fail("Contato não encontrado.");
+
+        if (ExisteCompromissoVinculado(id))
+            return Result.Fail("Não é possível excluir um contato que possui compromissos vinculados.");
+
+        repositorioContato.Excluir(id);
+
+        return Result.Ok().WithSuccess("Contato excluído com sucesso!"); 
+    }
+    
+    private bool ExisteCompromissoVinculado(Guid contatoId)
+    {
+        return repositorioCompromisso
+            .SelecionarTodos()
+            .Any(c => c.ContatoId == contatoId);
+    }
+
+    public List<ListarContatosDto> SelecionarTodos()
+    {
+        return repositorioContato
+            .SelecionarTodos()
+            .Select(MapearParaListarDto)
+            .ToList();
+    }
+
+    public Result<DetalhesContatoDto> SelecionarPorId(Guid id)
+    {
+        Contato? contato = repositorioContato.SelecionarPorId(id);
+
+        if (contato == null)
+            return Result.Fail("Contato não encontrado.");
+
+        return Result.Ok(MapearParaDetalhesDto(contato));
+    }
+
+    private static DetalhesContatoDto MapearParaDetalhesDto(Contato contato)
+    {
+        return new DetalhesContatoDto(
+            contato.Id,
+            contato.Nome,
+            contato.Email,
+            contato.Telefone,
+            contato.Cargo,
+            contato.Empresa
+        );
+    }
+
+    private static ListarContatosDto MapearParaListarDto(Contato contato)
+    {
+        return new ListarContatosDto(
+            contato.Id,
+            contato.Nome,
+            contato.Email,
+            contato.Telefone,
+            contato.Cargo,
+            contato.Empresa
+        );
     }
 
     private Result ValidarEntidade(Contato contato)
