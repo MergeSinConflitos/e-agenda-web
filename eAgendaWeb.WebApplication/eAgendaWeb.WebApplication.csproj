@@ -28,6 +28,7 @@
     <Folder Include="ModuloContatos\" />
     <Folder Include="ModuloContatos\Aplicacao\" />
     <Folder Include="ModuloContatos\Apresentacao\" />
+    <Folder Include="ModuloContatos\Apresentacao\Views\" />
     <Folder Include="ModuloContatos\Dominio\" />
     <Folder Include="ModuloContatos\Infra\" />
   </ItemGroup>

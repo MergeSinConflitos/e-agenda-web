@@ -38,6 +38,12 @@ public class Contato : EntidadeBase<Contato>
 
         if (string.IsNullOrWhiteSpace(Telefone))
             erros.Add("O campo \"Telefone\" é obrigatório.");
+        
+        if (!string.IsNullOrWhiteSpace(Cargo) && Cargo.Length > 100)
+            erros.Add("O campo \"Cargo\" deve conter no máximo 100 caracteres.");
+
+        if (!string.IsNullOrWhiteSpace(Empresa) && Empresa.Length > 100)
+            erros.Add("O campo \"Empresa\" deve conter no máximo 100 caracteres.");
 
         return erros;
     }

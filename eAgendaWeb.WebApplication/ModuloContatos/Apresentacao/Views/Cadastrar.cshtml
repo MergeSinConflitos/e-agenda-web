@@ -1,0 +1,84 @@
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Cadastro de Contatos";
+}
+
+@model CadastrarContatosViewModel
+
+<div class="container py-3">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+
+            <form class="card border-0 shadow-sm" asp-action="Cadastrar" method="post">
+
+                <div class="card-body p-4">
+
+                    <h4 class="text-primary mb-4">
+                        Cadastrar Contatos
+                    </h4>
+
+                    <div class="mb-3">
+                        <label asp-for="Nome" class="form-label fw-semibold text-primary text-uppercase small">Nome</label>
+
+                        <input asp-for="Nome" class="form-control" placeholder="Nome" />
+
+                        <span asp-validation-for="Nome" class="text-danger small fw-semibold"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label fw-semibold text-primary text-uppercase small">
+                            Email
+                        </label>
+
+                        <input asp-for="Email" class="form-control" placeholder="Digite seu Email" />
+
+                        <span asp-validation-for="Email" class="text-danger small fw-semibold">
+                        </span>
+                    
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Telefone" class="form-label fw-semibold text-primary text-uppercase small">Telefone</label>
+
+                        <input asp-for="Telefone" class="form-control" placeholder="99999-9999" />
+
+                        <span asp-validation-for="Telefone" class="text-danger small fw-semibold"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Cargo" class="form-label fw-semibold text-primary text-uppercase small">Cargo</label>
+
+                        <input asp-for="Cargo" class="form-control" placeholder="Cargo" />
+
+                        <span asp-validation-for="Cargo" class="text-danger small fw-semibold"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Empresa" class="form-label fw-semibold text-primary text-uppercase small">Empresa</label>
+
+                        <input asp-for="Empresa" class="form-control" placeholder="Empresa" />
+
+                        <span asp-validation-for="Empresa" class="text-danger small fw-semibold"></span>
+                    </div>
+
+                    
+
+                    <div class="d-flex flex-column flex-sm-row justify-content-end gap-2 mt-4">
+
+                        <a asp-action="Listar" class="btn btn-outline-primary rounded-pill px-4 order-2 order-sm-1">
+                            Voltar
+                        </a>
+
+                        <button type="submit" class="btn btn-success rounded-pill px-4 order-1 order-sm-2">
+                            Confirmar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
