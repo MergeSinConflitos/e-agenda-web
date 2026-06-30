@@ -22,12 +22,14 @@
     <Folder Include="Compartilhado\Aplicacao\Logging\" />
     <Folder Include="Compartilhado\Apresentacao\" />
     <Folder Include="Compartilhado\Apresentacao\Extensions\" />
+    <Folder Include="Compartilhado\Apresentacao\Mapping\" />
     <Folder Include="Compartilhado\Apresentacao\Views\" />
     <Folder Include="Compartilhado\Dominio\" />
     <Folder Include="Compartilhado\Infra\" />
     <Folder Include="Compartilhado\Infra\Arquivo\" />
     <Folder Include="Compartilhado\Infra\SQL\" />
     <Folder Include="ModuloCategoria\" />
+    <Folder Include="ModuloCategoria\Infra\SQL\" />
     <Folder Include="ModuloItem\" />
     <Folder Include="ModuloItem\Aplicacao\" />
     <Folder Include="ModuloItem\Apresentacao\" />
