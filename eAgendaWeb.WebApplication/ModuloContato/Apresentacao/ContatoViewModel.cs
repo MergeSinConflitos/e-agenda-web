@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace eAgendaWeb.WebApplication.ModuloContatos.Apresentacao;
+namespace eAgendaWeb.WebApplication.ModuloContato.Apresentacao;
 
 public record ListarContatosViewModel(
     Guid Id,

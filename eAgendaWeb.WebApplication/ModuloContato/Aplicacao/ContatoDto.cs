@@ -1,4 +1,4 @@
-namespace eAgendaWeb.WebApplication.ModuloContatos.Aplicacao;
+namespace eAgendaWeb.WebApplication.ModuloContato.Aplicacao;
 
 
 public record ListarContatosDto(

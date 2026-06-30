@@ -1,11 +1,11 @@
 using AutoMapper;
 using eAgendaWeb.WebApplication.Compartilhado.Apresentacao.Extensions;
-using eAgendaWeb.WebApplication.ModuloContatos.Aplicacao;
+using eAgendaWeb.WebApplication.ModuloContato.Aplicacao;
 using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace eAgendaWeb.WebApplication.ModuloContatos.Apresentacao;
+namespace eAgendaWeb.WebApplication.ModuloContato.Apresentacao;
 
 public class ContatoController : Controller
 {

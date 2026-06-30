@@ -1,7 +1,6 @@
-
 using eAgendaWeb.WebApplication.Compartilhado.Dominio;
 
-namespace eAgendaWeb.WebApplication.ModuloContatos.Dominio;
+namespace eAgendaWeb.WebApplication.ModuloContato.Dominio;
 
 public class Contato : EntidadeBase<Contato>
 {   

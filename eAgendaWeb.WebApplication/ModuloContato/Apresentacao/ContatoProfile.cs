@@ -1,7 +1,7 @@
 using AutoMapper;
-using eAgendaWeb.WebApplication.ModuloContatos.Aplicacao;
+using eAgendaWeb.WebApplication.ModuloContato.Aplicacao;
 
-namespace eAgendaWeb.WebApplication.ModuloContatos.Apresentacao;
+namespace eAgendaWeb.WebApplication.ModuloContato.Apresentacao;
 
 public class ContatoProfile : Profile
 {

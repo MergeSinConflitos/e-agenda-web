@@ -1,6 +1,6 @@
 
 using eAgendaWeb.WebApplication.Compartilhado.Dominio;
-using eAgendaWeb.WebApplication.ModuloContatos.Dominio;
+using eAgendaWeb.WebApplication.ModuloContato.Dominio;
 
 namespace eAgendaWeb.WebApplication.ModuloCompromisso.Dominio;
 

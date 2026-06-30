@@ -1,8 +1,8 @@
 using eAgendaWeb.WebApplication.ModuloCompromisso.Dominio;
-using eAgendaWeb.WebApplication.ModuloContatos.Dominio;
+using eAgendaWeb.WebApplication.ModuloContato.Dominio;
 using FluentResults;
 
-namespace eAgendaWeb.WebApplication.ModuloContatos.Aplicacao;
+namespace eAgendaWeb.WebApplication.ModuloContato.Aplicacao;
 
 public class ServicoContato
 {
@@ -79,7 +79,7 @@ public class ServicoContato
             .SelecionarTodos()
             .Any(c => c.ContatoId == contatoId);
     }
-
+    
     public List<ListarContatosDto> SelecionarTodos()
     {
         return repositorioContato

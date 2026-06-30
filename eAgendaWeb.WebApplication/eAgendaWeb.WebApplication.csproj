@@ -25,6 +25,7 @@
     <Folder Include="Compartilhado\Infra\SQL\" />
     <Folder Include="ModuloCompromisso\" />
     <Folder Include="ModuloCompromisso\Dominio\" />
+    <Folder Include="ModuloCompromisso\Infra\" />
     <Folder Include="ModuloContatos\" />
     <Folder Include="ModuloContatos\Aplicacao\" />
     <Folder Include="ModuloContatos\Apresentacao\" />
