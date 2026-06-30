@@ -35,7 +35,9 @@ public class ContatoController : Controller
         CadastrarContatosViewModel cadastrarVm = new CadastrarContatosViewModel(
             string.Empty,
             string.Empty,
-            string.Empty
+            string.Empty,
+            null,
+            null
         );
 
         return View(cadastrarVm);

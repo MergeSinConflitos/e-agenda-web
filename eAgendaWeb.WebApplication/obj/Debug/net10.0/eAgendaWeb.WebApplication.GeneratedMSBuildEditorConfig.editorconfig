@@ -34,6 +34,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = TW9kdWxvQ29udGF0b3NcQXByZXNlbnRhY2FvXFZpZXdzXENhZGFzdHJhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Paty/Desktop/ADP/e-Agenda/e-agenda-web/eAgendaWeb.WebApplication/ModuloContatos/Apresentacao/Views/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kdWxvQ29udGF0b3NcQXByZXNlbnRhY2FvXFZpZXdzXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Paty/Desktop/ADP/e-Agenda/e-agenda-web/eAgendaWeb.WebApplication/ModuloContatos/Apresentacao/Views/Excluir.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kdWxvQ29udGF0b3NcQXByZXNlbnRhY2FvXFZpZXdzXEV4Y2x1aXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Paty/Desktop/ADP/e-Agenda/e-agenda-web/eAgendaWeb.WebApplication/ModuloContatos/Apresentacao/Views/Listar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kdWxvQ29udGF0b3NcQXByZXNlbnRhY2FvXFZpZXdzXExpc3Rhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Paty/Desktop/ADP/e-Agenda/e-agenda-web/eAgendaWeb.WebApplication/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = X1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
