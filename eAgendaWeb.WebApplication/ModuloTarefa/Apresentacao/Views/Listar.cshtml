@@ -14,48 +14,43 @@
     Cadastrar Nova
 </a>
 
-@if (TempData["MensagemErro"] is string mensagemErro)
+@if (TempData["MensagemErro"] is string erro)
 {
-    <div class="alert alert-danger border-start border-danger border-4 rounded-3">
-        @mensagemErro
-    </div>
+    <div class="alert alert-danger">@erro</div>
 }
 
-@if (TempData["MensagemSucesso"] is string mensagemSucesso)
+@if (TempData["MensagemSucesso"] is string sucesso)
 {
-    <div class="alert alert-success border-start border-success border-4 rounded-3">
-        @mensagemSucesso
-    </div>
+    <div class="alert alert-success">@sucesso</div>
 }
 
-@if (Model.Count == 0)
+@if (!Model.Any())
 {
-    <div class="alert alert-primary border-start border-primary border-2 rounded-3">
+    <div class="alert alert-info">
         Nenhuma tarefa cadastrada.
     </div>
 }
 else
 {
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <div class="row g-4">
 
         @foreach (var tarefa in Model)
         {
             var idCurto = tarefa.Id.ToString("N")[..7];
 
-            <div class="col">
-                <div class="card h-100 shadow-sm border-0">
+            <div class="col-md-6 col-lg-4">
 
-                    <div class="card-header bg-primary border-0" style="height:8px;"></div>
+                <div class="card h-100 shadow-sm">
+
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <strong>@tarefa.Titulo</strong>
+
+                        <span class="badge bg-light text-dark">
+                            #@idCurto
+                        </span>
+                    </div>
 
                     <div class="card-body">
-
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <h5 class="card-title mb-0">@tarefa.Titulo</h5>
-
-                            <span class="badge bg-primary">
-                                #@idCurto
-                            </span>
-                        </div>
 
                         <p>
                             <strong>Prioridade:</strong>
@@ -63,7 +58,7 @@ else
                         </p>
 
                         <p>
-                            <strong>Data de Criação:</strong>
+                            <strong>Criação:</strong>
                             @tarefa.DataDeCriacao.ToString("dd/MM/yyyy")
                         </p>
 
@@ -80,37 +75,42 @@ else
                         </p>
 
                         <p>
-                            <strong>Concluído:</strong>
-                            @tarefa.PercentualConcluido%
+                            <strong>Percentual:</strong>
+
+                            <span class="badge bg-success">
+                                @tarefa.PercentualConcluido%
+                            </span>
                         </p>
 
                     </div>
 
-                    <div class="card-footer bg-transparent border-0 pt-0 pb-3">
-                        <div class="d-flex gap-2">
+                    <div class="card-footer bg-white">
 
-                            <a class="btn btn-success btn-sm flex-fill" asp-controller="Item" asp-action="Listar"
+                        <div class="d-grid gap-2">
+
+                            <a class="btn btn-success" asp-controller="Item" asp-action="Listar"
                                asp-route-tarefaId="@tarefa.Id">
-
                                 Itens
-
                             </a>
+
+                            <div class="btn-group">
+
+                                <a class="btn btn-primary" asp-action="Editar" asp-route-id="@tarefa.Id">
+                                    Editar
+                                </a>
+
+                                <a class="btn btn-outline-danger" asp-action="Excluir" asp-route-id="@tarefa.Id">
+                                    Excluir
+                                </a>
+
+                            </div>
 
                         </div>
-                        <div class="d-grid gap-2 d-md-flex">
 
-                            <a class="btn btn-primary btn-sm flex-fill" asp-action="Editar" asp-route-id="@tarefa.Id">
-                                Editar
-                            </a>
-
-                            <a class="btn btn-outline-danger btn-sm flex-fill" asp-action="Excluir" asp-route-id="@tarefa.Id">
-                                Excluir
-                            </a>
-
-                        </div>
                     </div>
 
                 </div>
+
             </div>
         }
 
@@ -118,8 +118,12 @@ else
 }
 
 <style>
+    .card {
+        transition: all .2s ease-in-out;
+    }
+
     .card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, .15) !important;
+        transform: translateY(-5px);
+        box-shadow: 0 .75rem 1.5rem rgba(0, 0, 0, .15);
     }
 </style>

@@ -69,26 +69,23 @@
 
 
     <div class="mb-3">
-
-        <label asp-for="CategoriaIds" class="form-label fw-semibold text-primary text-uppercase small">
+        <label class="form-label fw-semibold text-primary text-uppercase small">
             Categorias
         </label>
 
+        @foreach (OpcaoCategoriaViewModel categoria in Model.Categorias)
+        {
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="CategoriaIds" value="@categoria.Id"
+                       id="categoria-@categoria.Id" @(Model.CategoriaIds.Contains(categoria.Id) ? "checked" : "") />
 
-        <select asp-for="CategoriaIds" class="form-select" multiple>
-
-            @foreach (OpcaoCategoriaViewModel categoria in Model.Categorias)
-            {
-                <option value="@categoria.Id">
+                <label class="form-check-label" for="categoria-@categoria.Id">
                     @categoria.Titulo
-                </option>
-            }
+                </label>
+            </div>
+        }
 
-        </select>
-
-        <span asp-validation-for="CategoriaIds" class="text-danger small fw-semibold">
-        </span>
-
+        <span asp-validation-for="CategoriaIds" class="text-danger small fw-semibold"></span>
     </div>
 
 
