@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "sqlproj: Build eAgendaWeb",
+			"type": "process",
+			"command": "dotnet",
+			"args": [
+				"build",
+				"c:/Users/igorm/OneDrive/Desktop/Academia Progamador/E-Agenda Web/eAgendaWeb/eAgendaWeb.sqlproj"
+			],
+			"problemMatcher": "$sqlproj-problem-matcher",
+			"isBackground": true,
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"detail": "Builds the eAgendaWeb SQL project"
+		}
+	]
+}

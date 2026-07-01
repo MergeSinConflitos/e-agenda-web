@@ -1,12 +1,21 @@
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using eAgendaWeb.WebApplication.ModuloDeCategoria.Dominio;
+using eAgendaWeb.WebApplication.ModuloDispesa.Dominio;
+using eAgendaWeb.WebApplication.ModuloItem.Dominio;
+using eAgendaWeb.WebApplication.ModuloTarefa.Dominio;
 
 namespace eAgendaWeb.WebApplication.Compartilhado.Infra.Arquivo;
 
 public sealed class ContextoJson
 {
     private readonly string caminhoArquivo;
+
+    public List<Categoria> Categorias { get; set; } = new List<Categoria>();
+    public List<Despesa> Dispesas { get; set; } = new List<Despesa>();
+    public List<Tarefa> Tarefas { get; set; } = new List<Tarefa>();
+    public List<Item> Items { get; set; } = new List<Item>();
 
     public ContextoJson()
     {
@@ -51,5 +60,9 @@ public sealed class ContextoJson
         if (contextoSalvo == null)
             return;
 
+        Categorias = contextoSalvo.Categorias;
+        Dispesas = contextoSalvo.Dispesas;
+        Tarefas = contextoSalvo.Tarefas;
+        Items = contextoSalvo.Items;
     }
 }

@@ -1,6 +1,14 @@
 using System;
 using eAgendaWeb.WebApplication.Compartilhado.Infra.Arquivo;
 using eAgendaWeb.WebApplication.Compartilhado.Infra.SQL;
+using eAgendaWeb.WebApplication.ModuloDeCategoria.Dominio;
+using eAgendaWeb.WebApplication.ModuloDeCategoria.Infra;
+using eAgendaWeb.WebApplication.ModuloDispesa.Dominio;
+using eAgendaWeb.WebApplication.ModuloDispesa.Infra;
+using eAgendaWeb.WebApplication.ModuloItem.Dominio;
+using eAgendaWeb.WebApplication.ModuloItem.Infra;
+using eAgendaWeb.WebApplication.ModuloTarefa.Dominio;
+using eAgendaWeb.WebApplication.ModuloTarefa.Infra;
 
 namespace eAgendaWeb.WebApplication.Compartilhado.Infra;
 
@@ -18,6 +26,11 @@ public static class InjecaoDependencia
         });
 
         services.AddScoped<ISqlConnectionFactory, SqlConnectionFactory>();
+
+        services.AddScoped<IRepositorioCategoria, RepositorioCategoriaEmArquivo>();
+        services.AddScoped<IRepositorioDespesa, RepositorioDespesaEmArquivo>();
+        services.AddScoped<IRepositorioTarefa, RepositorioTarefaEmArquivo>();
+        services.AddScoped<IRepositorioItem, RepositorioItemEmArquivo>();
 
 
     }

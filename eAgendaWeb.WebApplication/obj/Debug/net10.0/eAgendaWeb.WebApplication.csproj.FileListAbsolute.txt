@@ -131,3 +131,4 @@ C:\Users\igorm\OneDrive\Desktop\Academia Progamador\E-Agenda Web\eAgendaWeb.WebA
 C:\Users\igorm\OneDrive\Desktop\Academia Progamador\E-Agenda Web\eAgendaWeb.WebApplication\obj\Debug\net10.0\eAgendaWeb.WebApplication.pdb
 C:\Users\igorm\OneDrive\Desktop\Academia Progamador\E-Agenda Web\eAgendaWeb.WebApplication\obj\Debug\net10.0\eAgendaWeb.WebApplication.genruntimeconfig.cache
 C:\Users\igorm\OneDrive\Desktop\Academia Progamador\E-Agenda Web\eAgendaWeb.WebApplication\obj\Debug\net10.0\ref\eAgendaWeb.WebApplication.dll
+C:\Users\igorm\OneDrive\Desktop\Academia Progamador\E-Agenda Web\eAgendaWeb.WebApplication\obj\Debug\net10.0\eAgendaWeb.WebApplication.sourcelink.json
