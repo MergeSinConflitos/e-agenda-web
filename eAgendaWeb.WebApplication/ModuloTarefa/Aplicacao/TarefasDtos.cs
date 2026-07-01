@@ -5,7 +5,7 @@ public record ListarTarefaDto(
     string Titulo,
     Prioridade Prioridade,
     DateTime DataDeCriacao,
-    DateTime DataDeConclusao,
+    DateTime? DataDeConclusao,
     StatusDeConclusao StatusDeConclusao,
     double PercentualConcluido
 );
@@ -28,7 +28,7 @@ public record DetalhesTarefaDto(
     string Titulo,
     Prioridade Prioridade,
     DateTime DataDeCriacao,
-    DateTime DataDeConclusao,
+    DateTime? DataDeConclusao,
     StatusDeConclusao StatusDeConclusao,
     double PercentualConcluido
 );

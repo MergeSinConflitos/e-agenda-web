@@ -43,6 +43,7 @@
     <Folder Include="ModuloTarefa\Apresentacao\Views\" />
     <Folder Include="ModuloTarefa\Dominio\" />
     <Folder Include="ModuloTarefa\Infra\" />
+    <Folder Include="ModuloTarefa\Infra\SQL\" />
   </ItemGroup>
 
 </Project>

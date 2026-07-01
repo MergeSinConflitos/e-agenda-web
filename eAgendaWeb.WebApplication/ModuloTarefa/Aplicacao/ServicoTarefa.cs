@@ -23,7 +23,7 @@ public class ServicoTarefa
             dto.Titulo,
             dto.Prioridade,
             dto.DataDeCriacao,
-            DateTime.MinValue,
+            null,
             StatusDeConclusao.Aberto
         );
 
@@ -51,7 +51,7 @@ public class ServicoTarefa
      dto.Titulo,
      dto.Prioridade,
      dto.DataDeCriacao,
-     DateTime.MinValue,
+     null,
      StatusDeConclusao.Aberto
  );
 
