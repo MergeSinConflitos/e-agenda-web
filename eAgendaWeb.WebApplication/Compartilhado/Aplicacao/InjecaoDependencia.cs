@@ -1,5 +1,6 @@
 using System;
 using eAgendaWeb.WebApplication.Compartilhado.Infra.Arquivo;
+using eAgendaWeb.WebApplication.ModuloCompromisso.Aplicacao;
 using eAgendaWeb.WebApplication.ModuloContato.Aplicacao;
 using eAgendaWeb.WebApplication.ModuloContato.Dominio;
 using eAgendaWeb.WebApplication.ModuloContato.Infra;
@@ -11,5 +12,6 @@ public static class InjecaoDependencia
     public static void AddApplicationServices(this IServiceCollection services)
     {
         services.AddScoped<ServicoContato>();
+        services.AddScoped<ServicoCompromisso>();
     }
 }

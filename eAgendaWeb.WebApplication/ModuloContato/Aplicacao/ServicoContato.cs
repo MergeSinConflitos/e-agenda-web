@@ -77,7 +77,7 @@ public class ServicoContato
     {
         return repositorioCompromisso
             .SelecionarTodos()
-            .Any(c => c.ContatoId == contatoId);
+            .Any(c => c.Contato?.Id == contatoId);
     }
     
     public List<ListarContatosDto> SelecionarTodos()
