@@ -1,16 +1,19 @@
 using System;
+using eAgendaWeb.WebApplication.Compartilhado.Apresentacao.Mapping;
 
 namespace eAgendaWeb.WebApplication.Compartilhado.Apresentacao;
 
 public static class InjecaoDependencia
 {
-    public static void AddPresentation(this IServiceCollection services)
+    public static void AddPresentationConfig(
+        this IServiceCollection services,
+        IConfiguration configuration
+    )
     {
         services.AddControllersWithViews().AddRazorOptions(options =>
         {
             // Reseta a configuração padrão do MVC
             options.ViewLocationFormats.Clear();
-
 
             // Localização das Views dos módulos: /ModuloCaixa/Apresentacao/Views/Listar.cshtml
             options.ViewLocationFormats.Add("/Modulo{1}/Apresentacao/Views/{0}.cshtml");
@@ -19,9 +22,18 @@ public static class InjecaoDependencia
             options.ViewLocationFormats.Add("/Compartilhado/Apresentacao/Views/{0}.cshtml");
         });
 
-        services.AddAutoMapper(config =>
+        services.AddAutoMapper(mapperConfig =>
         {
-            config.AddMaps(typeof(Program));
+            AutoMapperOptions autoMapperOptions = configuration
+                .GetSection(AutoMapperOptions.SectionName)
+                .Get<AutoMapperOptions>() ?? new AutoMapperOptions();
+
+            string? licenseKey = autoMapperOptions.LicenseKey;
+
+            if (!string.IsNullOrWhiteSpace(licenseKey))
+                mapperConfig.LicenseKey = licenseKey;
+
+            mapperConfig.AddMaps(typeof(Program));
         });
     }
 }

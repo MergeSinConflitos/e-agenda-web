@@ -10,7 +10,7 @@ public interface ISqlConnectionFactory
 
 public sealed class SqlConnectionFactory(IConfiguration configuration) : ISqlConnectionFactory
 {
-    private const string NomeConnectionString = "";
+    private const string NomeConnectionString = "SqlServer";
     public SqlConnection CreateConnection()
     {
         string? connectionString = configuration.GetConnectionString(NomeConnectionString);

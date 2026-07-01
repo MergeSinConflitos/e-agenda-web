@@ -19,14 +19,13 @@ public class TarefaController : Controller
     }
 
     [HttpGet]
-    public ActionResult Listar()
+    public ActionResult Listar(string filtro = "todas")
     {
-        List<ListarTarefaDto> dtos = servicoTarefa.SelecionarTodos();
+        var dtos = servicoTarefa.SelecionarTodos(filtro);
 
-        List<ListarTarefaViewModel> listarVms =
-            mapeador.Map<List<ListarTarefaViewModel>>(dtos);
+        var viewModel = mapeador.Map<List<ListarTarefaViewModel>>(dtos);
 
-        return View(listarVms);
+        return View(viewModel);
     }
 
     [HttpGet]

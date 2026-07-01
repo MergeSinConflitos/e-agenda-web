@@ -17,10 +17,10 @@ public class Tarefa : EntidadeBase<Tarefa>
     public string Titulo { get; set; }
     public Prioridade Prioridade { get; set; }
     public DateTime DataDeCriacao { get; set; } = DateTime.Now;
-    public DateTime DataDeConclusao { get; set; }
+    public DateTime? DataDeConclusao { get; set; }
     public StatusDeConclusao StatusDeConclusao { get; set; }
     public double PercentualConcluido { get; set; } = 0;
-    public Tarefa(string titulo, Prioridade prioridade, DateTime dataDeCriacao, DateTime dataDeConclusao, StatusDeConclusao statusDeConclusao)
+    public Tarefa(string titulo, Prioridade prioridade, DateTime dataDeCriacao, DateTime? dataDeConclusao, StatusDeConclusao statusDeConclusao)
     {
         Titulo = titulo;
         Prioridade = prioridade;
