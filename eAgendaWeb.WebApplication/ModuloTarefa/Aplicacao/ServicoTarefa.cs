@@ -1,4 +1,5 @@
 using System;
+using eAgendaWeb.WebApplication.ModuloItem.Dominio;
 using eAgendaWeb.WebApplication.ModuloTarefa.Dominio;
 using FluentResults;
 
@@ -7,10 +8,12 @@ namespace eAgendaWeb.WebApplication.ModuloTarefa.Aplicacao;
 public class ServicoTarefa
 {
     private readonly IRepositorioTarefa repositorioTarefa;
+    private readonly IRepositorioItem repositorioItemTarefa;
 
-    public ServicoTarefa(IRepositorioTarefa repositorioTarefa)
+    public ServicoTarefa(IRepositorioTarefa repositorioTarefa, IRepositorioItem repositorioItemTarefa)
     {
         this.repositorioTarefa = repositorioTarefa;
+        this.repositorioItemTarefa = repositorioItemTarefa;
     }
 
     public Result Cadastrar(CadastrarTarefaDto dto)
@@ -23,7 +26,7 @@ public class ServicoTarefa
             dto.Titulo,
             dto.Prioridade,
             dto.DataDeCriacao,
-            DateTime.MinValue,
+            null,
             StatusDeConclusao.Aberto
         );
 
@@ -51,7 +54,7 @@ public class ServicoTarefa
      dto.Titulo,
      dto.Prioridade,
      dto.DataDeCriacao,
-     DateTime.MinValue,
+     null,
      StatusDeConclusao.Aberto
  );
 
@@ -80,24 +83,46 @@ public class ServicoTarefa
             return Result.Fail("Tarefa não encontrada");
         }
 
+        var itens = repositorioItemTarefa
+            .Filtrar(i => i.TarefaId == id);
+
+        foreach (var item in itens)
+        {
+            repositorioItemTarefa.Excluir(item.Id);
+        }
+
         repositorioTarefa.Excluir(id);
 
         return Result.Ok().WithSuccess("Tarefa excluída com sucesso");
     }
 
 
-    public List<ListarTarefaDto> SelecionarTodos()
+    public List<ListarTarefaDto> SelecionarTodos(string filtro)
     {
-        return repositorioTarefa.SelecionarTodos()
-            .Select(t => new ListarTarefaDto(
-                t.Id,
-                t.Titulo,
-                t.Prioridade,
-                t.DataDeCriacao,
-                t.DataDeConclusao,
-                t.StatusDeConclusao,
-                t.PercentualConcluido
-            )).ToList();
+        var tarefas = repositorioTarefa.SelecionarTodos();
+
+        if (filtro == "concluidas")
+        {
+            tarefas = tarefas
+                .Where(t => t.StatusDeConclusao == StatusDeConclusao.Concluido)
+                .ToList();
+        }
+        else if (filtro == "prioridade")
+        {
+            tarefas = tarefas
+                .OrderBy(t => t.Prioridade)
+                .ToList();
+        }
+
+        return tarefas.Select(t => new ListarTarefaDto(
+            t.Id,
+            t.Titulo,
+            t.Prioridade,
+            t.DataDeCriacao,
+            t.DataDeConclusao,
+            t.StatusDeConclusao,
+            t.PercentualConcluido
+        )).ToList();
     }
 
 

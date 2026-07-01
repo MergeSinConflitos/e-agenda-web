@@ -8,7 +8,11 @@ namespace eAgendaWeb.WebApplication.Compartilhado.Aplicacao;
 
 public static class InjecaoDependencia
 {
-    public static void AddApplicationServices(this IServiceCollection services)
+    public static void AddApplicationServices(
+       this IServiceCollection services,
+       IConfiguration configuration,
+       ILoggingBuilder logging
+    )
     {
         services.AddScoped<ServicoCategoria>();
         services.AddScoped<ServicoDispesa>();

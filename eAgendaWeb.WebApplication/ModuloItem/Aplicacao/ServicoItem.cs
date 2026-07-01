@@ -47,6 +47,8 @@ public class ServicoItem
 
         repositorioItem.Cadastrar(novoItem);
 
+        AtualizarPercentualDaTarefa(novoItem.TarefaId);
+
         return Result.Ok()
             .WithSuccess("Item cadastrado com sucesso");
     }
@@ -196,7 +198,7 @@ public class ServicoItem
         {
             tarefa.PercentualConcluido = 0;
             tarefa.StatusDeConclusao = StatusDeConclusao.Aberto;
-            tarefa.DataDeConclusao = DateTime.MinValue;
+            tarefa.DataDeConclusao = null;
         }
         else
         {
@@ -216,7 +218,7 @@ public class ServicoItem
             else
             {
                 tarefa.StatusDeConclusao = StatusDeConclusao.Aberto;
-                tarefa.DataDeConclusao = DateTime.MinValue;
+                tarefa.DataDeConclusao = null;
             }
         }
 

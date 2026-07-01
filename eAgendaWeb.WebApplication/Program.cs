@@ -6,9 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddInfraRepositories();
 
-builder.Services.AddApplicationServices();
+builder.Services.AddApplicationServices(builder.Configuration, builder.Logging);
 
-builder.Services.AddPresentation();
+builder.Services.AddPresentationConfig(builder.Configuration);
 
 var app = builder.Build();
 

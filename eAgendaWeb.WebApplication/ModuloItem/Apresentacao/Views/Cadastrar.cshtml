@@ -35,65 +35,6 @@
 
 
 
-    <div class="mb-3">
-
-        <label asp-for="StatusDeConclusao" class="form-label fw-semibold text-success text-uppercase small">
-            Status
-        </label>
-
-
-        <select asp-for="StatusDeConclusao" class="form-select">
-
-            @foreach (StatusDeConclusao status in Enum.GetValues<StatusDeConclusao>())
-            {
-                <option value="@status">
-                    @status
-                </option>
-            }
-
-        </select>
-
-
-        <span asp-validation-for="StatusDeConclusao" class="text-danger small fw-semibold">
-        </span>
-
-    </div>
-
-
-
-
-    <div class="mb-3">
-
-        <label asp-for="TarefaId" class="form-label fw-semibold text-success text-uppercase small">
-            Tarefa
-        </label>
-
-
-        <select asp-for="TarefaId" class="form-select">
-
-            <option value="">
-                Selecione uma Tarefa
-            </option>
-
-
-            @foreach (OpcaoTarefaViewModel tarefa in Model.Tarefas)
-            {
-                <option value="@tarefa.Id">
-                    @tarefa.Titulo
-                </option>
-            }
-
-        </select>
-
-
-        <span asp-validation-for="TarefaId" class="text-danger small fw-semibold">
-        </span>
-
-    </div>
-
-
-
-
     <div class="d-flex justify-content-end gap-2 mt-4">
 
 
