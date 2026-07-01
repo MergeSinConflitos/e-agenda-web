@@ -9,6 +9,7 @@ using eAgendaWeb.WebApplication.ModuloDispesa.Dominio;
 using eAgendaWeb.WebApplication.ModuloDispesa.Infra;
 using eAgendaWeb.WebApplication.ModuloItem.Dominio;
 using eAgendaWeb.WebApplication.ModuloItem.Infra;
+using eAgendaWeb.WebApplication.ModuloItem.Infra.SQL;
 using eAgendaWeb.WebApplication.ModuloTarefa.Dominio;
 using eAgendaWeb.WebApplication.ModuloTarefa.Infra;
 using eAgendaWeb.WebApplication.ModuloTarefa.Infra.SQL;
@@ -33,7 +34,7 @@ public static class InjecaoDependencia
         services.AddScoped<IRepositorioCategoria, RepositorioCategoriaEmSql>();
         services.AddScoped<IRepositorioDespesa, RepositorioDespesaEmSql>();
         services.AddScoped<IRepositorioTarefa, RepositorioTarefaEmSql>();
-        services.AddScoped<IRepositorioItem, RepositorioItemEmArquivo>();
+        services.AddScoped<IRepositorioItem, RepositorioItemEmSql>();
 
 
     }

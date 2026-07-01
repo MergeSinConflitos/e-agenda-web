@@ -37,6 +37,7 @@
     <Folder Include="ModuloItem\Apresentacao\Views\" />
     <Folder Include="ModuloItem\Dominio\" />
     <Folder Include="ModuloItem\Infra\" />
+    <Folder Include="ModuloItem\Infra\SQL\" />
     <Folder Include="ModuloTarefa\" />
     <Folder Include="ModuloTarefa\Aplicacao\" />
     <Folder Include="ModuloTarefa\Apresentacao\" />
