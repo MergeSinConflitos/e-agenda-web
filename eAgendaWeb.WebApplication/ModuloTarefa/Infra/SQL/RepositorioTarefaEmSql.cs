@@ -55,6 +55,7 @@ public class RepositorioTarefaEmSql(ISqlConnectionFactory connectionFactory) :
         DataDeConclusao,
         StatusDeConclusao,
         PercentualConcluido
-    FROM dbo.TBTarefa;
+    FROM dbo.TBTarefa
+    ORDER BY StatusDeConclusao,Prioridade;
     """;
 }
